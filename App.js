@@ -10,12 +10,17 @@ import React, {Component} from 'react';
 import { View, Image, Button, Dimensions} from 'react-native';
 import ImagePicker from "react-native-image-picker";
 import Share from 'react-native-share';
+import SplashScreen from "react-native-splash-screen";
 
 export default class App extends React.Component {
 
   state = {
     photo: null
   };
+
+  componentDidMount(): void {
+    SplashScreen.hide();
+  }
 
   handleChooseImage = () => {
 
@@ -40,7 +45,6 @@ export default class App extends React.Component {
   };
 
   shareImage = () => {
-    // console.log(this.shareOptions);
     Share.open(this.shareOptions);
   };
 
